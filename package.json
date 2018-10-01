@@ -36,10 +36,16 @@
   "dependencies": {
     "async": "^2.5.0",
     "cheerio": "^0.20.0",
+    "dbus-native": "^0.2.5",
     "electron-json-storage": "^2.0.0",
     "he": "^1.1.0",
     "jquery": "^3.1.0",
+    "lodash": "^4.17.11",
+    "os": "^0.1.1",
+    "ps": "^1.0.0",
     "request": "^2.74.0",
+    "spotify-node-applescript": "^1.1.1",
+    "spotilocal": "^0.4.4",
     "toastr": "^2.1.2",
     "vue": "^1.0.26",
     "vue-class-component": "^3.2.0"

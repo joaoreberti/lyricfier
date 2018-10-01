@@ -6,7 +6,7 @@ export interface Song {
     artist: string;
     sourceUrl?: string;
     sourceName?: string;
-    playing: string;
+    playing: boolean;
     album: {
         name: string;
         images: string;
