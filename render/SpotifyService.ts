@@ -5,33 +5,33 @@ const async = require('async');
 const initialPortTest = 4370;
 
 export class SpotifyService {
-    protected https = false;
-    protected foundPort = false;
-    protected port: number;
-    protected portTries = 15;
-    protected albumImagesCache = {};
+    private https = false;
+    private foundPort = false;
+    private port: number;
+    private portTries = 15;
+    private albumImagesCache = {};
 
-    protected oAuthToken = {
+    private oAuthToken = {
         t: null,
         expires: null
     };
-    protected csrfToken = null;
+    private csrfToken = null;
 
 
 
-    protected static headers() {
+    private static headers() {
         return {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36', // Placeholder user-agent
             'Origin': 'https://open.spotify.com'
         };
     }
 
-    protected url(u: string) {
+    private url(u: string) {
         const protocol = this.https ? 'https' : 'http';
         return `${protocol}://127.0.0.1:${this.port}${u}`;
     }
 
-    public getOAuthToken(cb) {
+    private getOAuthToken(cb) {
         if (this.oAuthToken.t) {
             return cb(null, this.oAuthToken.t);
         }
@@ -53,7 +53,7 @@ export class SpotifyService {
         });
     }
 
-    public detectPort(cb: (err, port: number) => void) {
+    private detectPort(cb: (err, port: number) => void) {
         if (!this.foundPort) {
             this.port = initialPortTest;
         }
@@ -77,7 +77,7 @@ export class SpotifyService {
     }
 
 
-    public getCsrfToken(cb) {
+    private getCsrfToken(cb) {
         if (this.csrfToken) {
             return cb(null, this.csrfToken);
         }
@@ -97,7 +97,7 @@ export class SpotifyService {
         });
     }
 
-    public needsTokens(fn) {
+    private needsTokens(fn) {
         this.detectPort((err) => {
             if (err) {
                 const failDetectPort = 'No port found! Is spotify running?';
@@ -113,7 +113,7 @@ export class SpotifyService {
 
     }
 
-    public getStatus(cb) {
+    private getStatus(cb) {
         this.needsTokens((err, tokens) => {
             if (err) return cb(err);
             const params = {
@@ -144,7 +144,7 @@ export class SpotifyService {
         });
     }
 
-    protected getAlbumImages(albumUri: string, cb) {
+    private getAlbumImages(albumUri: string, cb) {
         if (this.albumImagesCache[albumUri]) {
             return cb(null, this.albumImagesCache[albumUri])
         }
@@ -172,7 +172,7 @@ export class SpotifyService {
 
     }
 
-    public pause(pause: boolean, cb) {
+    private pause(pause: boolean, cb) {
         this.needsTokens((err, tokens) => {
             if (err) return cb(err);
             const params = {
