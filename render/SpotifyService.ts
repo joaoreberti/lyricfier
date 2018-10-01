@@ -1,4 +1,5 @@
 import {encodeData} from "./Utils";
+import { Song } from "./api/Song";
 
 const request = require('request').defaults({timeout: 5000});
 const async = require('async');
@@ -195,7 +196,7 @@ export class SpotifyService {
 
     }
 
-    public getCurrentSong(cb) {
+    public getCurrentSong(cb: (err: any, song?: Song) => any) {
         this.getStatus((err, status) => {
             if (err) {
                 this.foundPort = false;
@@ -205,7 +206,7 @@ export class SpotifyService {
             }
             
             if (status.track && status.track.track_resource) {
-                const result = {
+                const result: Song = {
                     playing: status.playing,
                     artist: status.track.artist_resource ? status.track.artist_resource.name : 'Unknown',
                     title: status.track.track_resource.name,

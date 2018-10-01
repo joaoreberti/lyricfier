@@ -2,6 +2,7 @@ import Component from 'vue-class-component';
 import {Searcher} from "./Searcher";
 import {template} from './template';
 import {SpotifyService} from './SpotifyService';
+import {Song} from './api/Song';
 
 @Component({
     props: {
@@ -55,7 +56,7 @@ export class SongRender {
 
     refresh() {
         this.resizeOnLyricsHide();
-        this.getSpotify().getCurrentSong((err, song) => {
+        this.getSpotify().getCurrentSong((err: any, song: Song) => {
             if (err) {
                 this.showError('Current song error: ' + err);
                 this.scheduleNextCall();
