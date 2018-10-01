@@ -29,9 +29,8 @@ export class SpotifyService {
                     return finish(err, null)
                 }
                 try {
-                    const parsed = JSON.parse(body);
-                    finish(null, parsed.images);
-                    this.albumImagesCache[albumArtUrl] = parsed.images;
+                    finish(null, body);
+                    this.albumImagesCache[albumArtUrl] = body;
                 } catch (e) {
                     const msgParseFail = 'Failed to parse response from spotify api';
                     console.error(msgParseFail, 'URL USED: ', albumArtUrl);
