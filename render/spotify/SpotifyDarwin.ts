@@ -1,4 +1,4 @@
-import { SpotifyClient } from '../api/SpotifyClient';
+import {SpotifyClient}from '../api/SpotifyClient';
 
 const spotify = require('spotify-node-applescript');
 

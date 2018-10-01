@@ -9,7 +9,7 @@ export interface Song {
     playing: boolean;
     album: {
         name: string;
-        images: string;
+        imageUrl: string;
     };
     duration: number;
 }

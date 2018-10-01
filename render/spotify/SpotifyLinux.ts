@@ -1,5 +1,5 @@
-import { join, reduce, split, toLower } from "lodash";
-import { SpotifyClient } from "../api/SpotifyClient";
+import {join, reduce, split, toLower}from "lodash";
+import {SpotifyClient}from "../api/SpotifyClient";
 
 const dbus = require('dbus-native');
 

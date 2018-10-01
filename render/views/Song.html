@@ -9,13 +9,13 @@
                 <h1>lyricfier</h1>
             </div>
 
-            <!-- if we have images !-->
-            <span v-if="song.album.images" class="header__background" :style="{ backgroundImage: 'url(' + song.album.images[0].url + ')' }"></span>
-            <img  v-if="song.album.images" class="header__album-art" :src="song.album.images[0].url" alt="{{song.album.name}}">
+            <!-- if we have imageUrl !-->
+            <span v-if="song.album.imageUrl" class="header__background" :style="{ backgroundImage: 'url(' + song.album.imageUrl + ')' }"></span>
+            <img  v-if="song.album.imageUrl" class="header__album-art" :src="song.album.imageUrl" alt="{{song.album.name}}">
 
             <!-- showing default logo !-->
-            <span v-if="song.album.images == null" class="header__background" style="background-image: url(../img/icon.png);"></span>
-            <img  v-if="song.album.images == null" class="header__album-art" style="padding: 5px; box-sizing: border-box;" src="../img/icon.png" alt="{{song.album.name}}">
+            <span v-if="song.album.imageUrl == null" class="header__background" style="background-image: url(../img/icon.png);"></span>
+            <img  v-if="song.album.imageUrl == null" class="header__album-art" style="padding: 5px; box-sizing: border-box;" src="../img/icon.png" alt="{{song.album.name}}">
 
             <h3>{{ song.title }}</h3>
             <h4>{{ song.artist }}</h4>

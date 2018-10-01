@@ -1,8 +1,8 @@
-import { SpotifyClient } from './api/SpotifyClient';
-import { SpotifyDarwin } from "./spotify/SpotifyDarwin";
-import { SpotifyLinux } from "./spotify/SpotifyLinux";
-import { SpotifyWindows } from "./spotify/SpotifyWindows";
-import { SpotifyDefault } from "./spotify/SpotifyDefault";
+import {SpotifyClient}from './api/SpotifyClient';
+import {SpotifyDarwin}from "./spotify/SpotifyDarwin";
+import {SpotifyLinux}from "./spotify/SpotifyLinux";
+import {SpotifyWindows}from "./spotify/SpotifyWindows";
+import {SpotifyDefault}from "./spotify/SpotifyDefault";
 
 const os = require('os');
 
