@@ -1,12 +1,8 @@
-import {encodeData}from "./Utils";
-import {Song}from "./api/Song";
-import {SongMetadata}from "./api/SongMetadata";
-import {SpotifyClient}from "./api/SpotifyClient";
-import {SpotifyClientFactory}from "./SpotifyClientFactory";
-import {join, reduce, split, toLower}from "lodash";
-
-const request = require('request').defaults({ timeout: 5000 });
-const async = require('async');
+import { Song } from "./api/Song";
+import { SongMetadata } from "./api/SongMetadata";
+import { SpotifyClient } from "./api/SpotifyClient";
+import { SpotifyClientFactory } from "./SpotifyClientFactory";
+import { join, reduce, split, toLower } from "lodash";
 
 
 export class SpotifyService {
@@ -20,9 +16,9 @@ export class SpotifyService {
 
     public getCurrentSong(cb: (err: any, song?: Song) => any) {
         this.spotifyClient.getTrack().then((status: SongMetadata) => {
-            console.log('Retrieved song metadata:', JSON.stringify(status));
+            console.log('Retrieved song metadata: ' + JSON.stringify(status));
 
-            if (status.trackid) {
+            if (status.id || status.trackid) {
                 const result: Song = {
                     playing: true,
                     artist: status.artist || 'Unknown',

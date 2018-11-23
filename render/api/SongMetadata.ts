@@ -2,6 +2,7 @@
 
 export interface SongMetadata {
     trackid: string;
+    id: string; // no track id on darwin
     length: number;
     artUrl: string;
     album: string;

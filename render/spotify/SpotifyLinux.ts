@@ -3,12 +3,12 @@ import {SpotifyClient}from "../api/SpotifyClient";
 
 const dbus = require('dbus-native');
 
-export class SpotifyLinux implements SpotifyClient{
+export class SpotifyLinux implements SpotifyClient {
 
   private spotifySessionBusService;
 
   constructor() {
-    const sessionBus = dbus.sessionBus()
+    const sessionBus = dbus.sessionBus();
     this.spotifySessionBusService = sessionBus.getService('org.mpris.MediaPlayer2.spotify')
   }
 
@@ -88,14 +88,14 @@ export class SpotifyLinux implements SpotifyClient{
           reject(err)
         } else {
           const m = reduce(metadata, (dst, m) => {
-            const [k, v] = m
-            const [, values] = v
-            const key = split(k, ':')[1]
-            const val = values[0]
-            dst[key] = Array.isArray(val) ? join(val, ' & ') : val
+            const [k, v] = m;
+            const [, values] = v;
+            const key = split(k, ':')[1];
+            const val = values[0];
+            dst[key] = Array.isArray(val) ? join(val, ' & ') : val;
             return dst
-          }, {})
-          m.name = m.title
+          }, {});
+          m.name = m.title;
 
           console.log(JSON.stringify(m));
           resolve(m)
