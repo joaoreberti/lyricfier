@@ -1,7 +1,6 @@
 import {SpotifyClient}from './api/SpotifyClient';
 import {SpotifyDarwin}from "./spotify/SpotifyDarwin";
 import {SpotifyLinux}from "./spotify/SpotifyLinux";
-import {SpotifyWindows}from "./spotify/SpotifyWindows";
 import {SpotifyDefault}from "./spotify/SpotifyDefault";
 
 const os = require('os');
@@ -15,7 +14,7 @@ export class SpotifyClientFactory {
       case 'linux':
         return new SpotifyLinux();
       case 'win32':
-        return new SpotifyWindows();
+        // return new SpotifyWindows();
       default:
         return new SpotifyDefault()
     }
