@@ -29,11 +29,10 @@ yarn start
 
 
 
-## How it works
+## Known platform limitations
 
-We retrieve the current song of spotify client using the spotify built-in web server that allow us to ask for the current status of the player.
-The built-in web server could run in a range of ports starting at 4370. Lyricfier will launch multiple connections hoping find the actual port.
-You can read a more detailed explanation here: [Deconstructing Spotify's built-in HTTP server](http://cgbystrom.com/articles/deconstructing-spotifys-builtin-http-server/)
+### Mac OS
+ - fetching album cover does is not supported
 
 ## Scraping plugins
 

@@ -11,11 +11,11 @@ export class SpotifyClientFactory {
   static getSpotifyClient(): SpotifyClient {
     switch (os.platform()) {
       case 'darwin':
-        return new SpotifyDarwin()
+        return new SpotifyDarwin();
       case 'linux':
-        return new SpotifyLinux()
+        return new SpotifyLinux();
       case 'win32':
-        return new SpotifyWindows()
+        return new SpotifyWindows();
       default:
         return new SpotifyDefault()
     }
