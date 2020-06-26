@@ -13,19 +13,24 @@ export class SpotifyService {
     constructor() {
         this.spotifyClient = SpotifyClientFactory.getSpotifyClient();
     }
+    public handleImageUrl = (artUrl:string) =>{
+        return artUrl.replace('open.spotify.com', 'i.scdn.co')
+          
+     } 
 
     public getCurrentSong(cb: (err: any, song?: Song) => any) {
         this.spotifyClient.getTrack().then((status: SongMetadata) => {
             console.log('Retrieved song metadata: ' + JSON.stringify(status));
 
             if (status.id || status.trackid) {
+               
                 const result: Song = {
                     playing: true,
                     artist: status.artist || 'Unknown',
                     title: status.name,
                     album: {
                         name: status.album || 'Unknown',
-                        imageUrl: status.artUrl || null
+                        imageUrl: this.handleImageUrl(status.artUrl) || null
                     },
                     duration: status.length
                 };
